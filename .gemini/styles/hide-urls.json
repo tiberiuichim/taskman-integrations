@@ -1,0 +1,9 @@
+{
+    "link": {
+        "color": "#00afff",
+        "underline": true
+    },
+    "link_url": {
+        "display": "none"
+    }
+}
