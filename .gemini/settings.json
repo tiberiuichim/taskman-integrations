@@ -1,4 +1,7 @@
 {
+  "model": {
+    "name": "auto-gemini-3"
+  },
   "mcpServers": {
     "redmine": {
       "command": "uvx",
