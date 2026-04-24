@@ -9,7 +9,7 @@ The primary goal of this repository is to provide a central place for scripts th
 ## 🛠 Features
 
 - **Automated Issue Tracking**: Scripts to identify urgent issues and recent activity.
-- **AI-Powered Analysis**: Uses Gemini CLI to interpret Redmine data.
+- **AI-Powered Analysis**: Uses Gemini CLI in interactive mode (`-i`) for rich visual formatting and real-time intervention.
 - **MCP Integration**: Seamlessly connects to Taskman via the Model Context Protocol (MCP).
 - **Extensible Prompt System**: Manage your AI instructions in the `prompts/` directory.
 

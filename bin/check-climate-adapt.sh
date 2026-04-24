@@ -12,5 +12,5 @@ fi
 
 PROMPT=$(cat "$PROMPT_FILE")
 
-# Call the gemini CLI with the prompt, allowing it to use local MCP tools autonomously
-gemini -p "$PROMPT" --skip-trust --approval-mode=yolo
+# Call the gemini CLI in interactive mode with the prompt, enabling rich visual formatting
+gemini -i "$PROMPT" --skip-trust --approval-mode=yolo
