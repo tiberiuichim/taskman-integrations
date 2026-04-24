@@ -1,0 +1,3 @@
+[submodule "mcp-redmine"]
+	path = mcp-redmine
+	url = git@github.com:runekaagaard/mcp-redmine.git

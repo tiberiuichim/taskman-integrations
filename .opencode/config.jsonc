@@ -1,0 +1,14 @@
+{
+  "mcp": {
+    "redmine": {
+      "type": "local",
+      "command": ["uvx", "--from", "mcp-redmine==2026.01.13.152335", "--refresh-package", "mcp-redmine", "mcp-redmine"],
+      "environment": {
+        "REDMINE_URL": "${REDMINE_URL}",
+        "REDMINE_API_KEY": "${REDMINE_API_KEY}",
+        "REDMINE_REQUEST_INSTRUCTIONS": "${REDMINE_REQUEST_INSTRUCTIONS}",
+        "REDMINE_ALLOWED_DIRECTORIES": "${REDMINE_ALLOWED_DIRECTORIES}"
+      }
+    }
+  }
+}

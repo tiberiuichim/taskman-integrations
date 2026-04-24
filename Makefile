@@ -7,3 +7,11 @@ help: ## Show this help message
 .PHONY: check-climate-adapt
 check-climate-adapt: ## Check Climate-ADAPT project for issues requiring immediate intervention
 	@./bin/check-climate-adapt.sh
+
+.PHONY: check-climate-adapt-opencode
+check-climate-adapt-opencode: ## Check Climate-ADAPT project using OpenCode (opencode CLI)
+	@./bin/check-climate-adapt-opencode.sh
+
+.PHONY: check-climate-adapt-pi
+check-climate-adapt-pi: ## Check Climate-ADAPT project using pi agent
+	@./bin/check-climate-adapt-pi.sh
