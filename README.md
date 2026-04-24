@@ -10,7 +10,7 @@ The primary goal of this repository is to provide a central place for scripts th
 
 - **Automated Issue Tracking**: Scripts to identify urgent issues and recent activity.
 - **AI-Powered Analysis**: Uses Gemini CLI to interpret Redmine data.
-- **Rich Visuals**: Formats output using `mdcat` for a clean terminal experience.
+- **Rich Visuals**: Formats output using `glow` for a clean terminal experience.
 - **MCP Integration**: Seamlessly connects to Taskman via the Model Context Protocol (MCP).
 - **Extensible Prompt System**: Manage your AI instructions in the `prompts/` directory.
 
@@ -19,7 +19,7 @@ The primary goal of this repository is to provide a central place for scripts th
 To use these tools, you need:
 
 1.  **[Gemini CLI](https://github.com/google/gemini-cli)**: The core command-line tool.
-2.  **[mdcat](https://github.com/swsnr/mdcat)**: For rendering Markdown in the terminal.
+2.  **[glow](https://github.com/charmbracelet/glow)**: For rendering Markdown in the terminal.
 3.  **Redmine MCP Server**: Configured in `.gemini/settings.json`.
 3.  **Taskman Access**: A valid Redmine API key and URL.
 
