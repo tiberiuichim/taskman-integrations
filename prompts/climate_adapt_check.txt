@@ -1,0 +1,3 @@
+Review the current issues in the Climate-ADAPT project in Taskman.
+Identify any issues that need immediate intervention based on their status, priority, or recent activity.
+Provide a summary of the most critical items that require my attention.
