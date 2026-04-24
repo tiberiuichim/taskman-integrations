@@ -12,5 +12,5 @@ fi
 
 PROMPT=$(cat "$PROMPT_FILE")
 
-# Call the gemini CLI in interactive mode with the prompt, enabling rich visual formatting
-gemini -i "$PROMPT" --skip-trust --approval-mode=yolo
+# Call the gemini CLI with the prompt and pipe to mdcat for visual formatting
+gemini -p "$PROMPT" --skip-trust --approval-mode=yolo | mdcat
