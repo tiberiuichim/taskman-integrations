@@ -1,3 +1,12 @@
 Review the current issues in the Climate-ADAPT project in Taskman.
 Identify any issues that need immediate intervention based on their status, priority, or recent activity.
 Provide a summary of the most critical items that require my attention.
+
+# FINAL REPORT FORMATTING INSTRUCTIONS
+You MUST format every issue number as a standard Markdown link in the final summary.
+Use the exact syntax: [#ISSUE_ID](https://taskman.eionet.europa.eu/issues/ISSUE_ID)
+
+Example: [#302827](https://taskman.eionet.europa.eu/issues/302827)
+
+DO NOT just print the URL. It MUST be a clickable Markdown link using the brackets and parentheses.
+This is a strict requirement for terminal clickability.
