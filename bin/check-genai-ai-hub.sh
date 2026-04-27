@@ -12,5 +12,9 @@ fi
 
 PROMPT=$(cat "$PROMPT_FILE")
 
-# Call the gemini CLI with the prompt and pipe to glow for visual formatting
-gemini -p "$PROMPT" --skip-trust --approval-mode=yolo | glow
+# Call the gemini CLI with the prompt.
+# No glow: the CLI buffers output internally, so piping to glow would
+# double-buffer. We let the CLI's own formatting reach the terminal directly.
+echo "⏳ Gemini is analyzing GenAI - AI Hub issues..."
+gemini -p "$PROMPT" --skip-trust --approval-mode=yolo
+echo

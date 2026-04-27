@@ -15,5 +15,9 @@ fi
 
 PROMPT=$(cat "$PROMPT_FILE")
 
-# Call OpenCode with the prompt, auto-approve permissions, pipe to glow for formatting
-opencode run "$PROMPT" --dangerously-skip-permissions | glow
+# Call OpenCode with the prompt, auto-approve permissions.
+# No glow: opencode run buffers output internally, so piping to glow would
+# double-buffer. We let the CLI's own formatting reach the terminal directly.
+echo "⏳ OpenCode is analyzing GenAI - AI Hub issues..."
+opencode run "$PROMPT" --dangerously-skip-permissions
+echo

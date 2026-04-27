@@ -16,5 +16,6 @@ fi
 PROMPT=$(cat "$PROMPT_FILE")
 
 # Call pi with the prompt, loading the Redmine tools extension,
-# in print mode (-p) for non-interactive execution, pipe to glow for formatting
-pi -p --extension ./pi/pi-redmine-tools.ts "$PROMPT" | glow
+# in print mode (-p) for non-interactive execution.
+# No glow: pi -p streams output live; glow would block until completion.
+pi -p --extension ./pi/pi-redmine-tools.ts "$PROMPT"
