@@ -79,6 +79,21 @@ make check-climate-adapt-opencode
 make check-climate-adapt-pi
 ```
 
+### Check GenAI - AI Hub Issues
+
+Get a summary of GenAI - AI Hub project issues requiring immediate attention, using your preferred agent:
+
+```bash
+# Gemini (MCP via mcp-redmine)
+make check-genai-ai-hub
+
+# OpenCode (MCP via mcp-redmine)
+make check-genai-ai-hub-opencode
+
+# pi (TypeScript extension)
+make check-genai-ai-hub-pi
+```
+
 ## 📁 Project Structure
 
 ```
@@ -86,7 +101,10 @@ taskman/
 ├── bin/                    # Thin shell wrappers (scripts only)
 │   ├── check-climate-adapt.sh          # Gemini variant
 │   ├── check-climate-adapt-opencode.sh # OpenCode variant
-│   └── check-climate-adapt-pi.sh       # pi variant
+│   ├── check-climate-adapt-pi.sh       # pi variant
+│   ├── check-genai-ai-hub.sh           # Gemini variant
+│   ├── check-genai-ai-hub-opencode.sh  # OpenCode variant
+│   └── check-genai-ai-hub-pi.sh        # pi variant
 ├── pi/                     # pi-specific code
 │   ├── pi-redmine-tools.ts   # Pi extension (Redmine API tools)
 │   └── redmine_openapi.yml   # OpenAPI spec (for endpoint discovery)
@@ -99,7 +117,8 @@ taskman/
 │   ├── config.jsonc
 │   └── package.json
 ├── prompts/                # Shared prompts
-│   └── climate_adapt_check.txt
+│   ├── climate_adapt_check.txt
+│   └── genai_ai_hub_check.txt
 └── mcp-redmine/            # Standalone MCP server (Python)
 ```
 
@@ -110,4 +129,4 @@ taskman/
 
 ## 🤝 Project Context
 
-This project is maintained by **Tiberiu Ichim**, Team Leader for the **Climate-ADAPT** project. The tools are optimized to support Climate-ADAPT workflows but can be adapted for any Redmine-based project.
+This project is maintained by **Tiberiu Ichim**, Team Leader for the **Climate-ADAPT** and **GenAI - AI Hub** projects. The tools are optimized to support both workflows but can be adapted for any Redmine-based project.

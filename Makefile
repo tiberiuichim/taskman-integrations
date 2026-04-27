@@ -15,3 +15,15 @@ check-climate-adapt-opencode: ## Check Climate-ADAPT project using OpenCode (ope
 .PHONY: check-climate-adapt-pi
 check-climate-adapt-pi: ## Check Climate-ADAPT project using pi agent
 	@./bin/check-climate-adapt-pi.sh
+
+.PHONY: check-genai-ai-hub
+check-genai-ai-hub: ## Check GenAI - AI Hub project for issues requiring immediate intervention
+	@./bin/check-genai-ai-hub.sh
+
+.PHONY: check-genai-ai-hub-opencode
+check-genai-ai-hub-opencode: ## Check GenAI - AI Hub project using OpenCode (opencode CLI)
+	@./bin/check-genai-ai-hub-opencode.sh
+
+.PHONY: check-genai-ai-hub-pi
+check-genai-ai-hub-pi: ## Check GenAI - AI Hub project using pi agent
+	@./bin/check-genai-ai-hub-pi.sh
