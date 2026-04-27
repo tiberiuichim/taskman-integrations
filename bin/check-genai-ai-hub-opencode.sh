@@ -6,6 +6,8 @@ cd "$(dirname "$0")/.." || exit 1
 # Load Redmine credentials from .env
 source .opencode/.env
 
+source bin/_check-common.sh
+
 PROMPT_FILE="prompts/genai_ai_hub_check.txt"
 
 if [ ! -f "$PROMPT_FILE" ]; then
@@ -16,8 +18,7 @@ fi
 PROMPT=$(cat "$PROMPT_FILE")
 
 # Call OpenCode with the prompt, auto-approve permissions.
-# No glow: opencode run buffers output internally, so piping to glow would
-# double-buffer. We let the CLI's own formatting reach the terminal directly.
-echo "⏳ OpenCode is analyzing GenAI - AI Hub issues..."
-opencode run "$PROMPT" --dangerously-skip-permissions
-echo
+# Output is captured to a temp file and rendered via glow at the end.
+# Spinner shows progress while opencode processes.
+run_agent_with_spinner "OpenCode is analyzing GenAI - AI Hub issues..." \
+    opencode run "$PROMPT" --dangerously-skip-permissions

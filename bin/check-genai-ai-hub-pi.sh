@@ -6,6 +6,8 @@ cd "$(dirname "$0")/.." || exit 1
 # Load Redmine credentials from .env
 source .opencode/.env
 
+source bin/_check-common.sh
+
 PROMPT_FILE="prompts/genai_ai_hub_check.txt"
 
 if [ ! -f "$PROMPT_FILE" ]; then
@@ -17,5 +19,7 @@ PROMPT=$(cat "$PROMPT_FILE")
 
 # Call pi with the prompt, loading the Redmine tools extension,
 # in print mode (-p) for non-interactive execution.
-# No glow: pi -p streams output live; glow would block until completion.
-pi -p --extension ./pi/pi-redmine-tools.ts "$PROMPT"
+# Output is captured to a temp file and rendered via glow at the end.
+# Spinner shows progress while pi processes.
+run_agent_with_spinner "Pi is analyzing GenAI - AI Hub issues..." \
+    pi -p --extension ./pi/pi-redmine-tools.ts "$PROMPT"
