@@ -32,15 +32,15 @@ run_agent_with_spinner() {
     local spid=$!
 
     # Run agent: 
-    # stdout is teed to temp file AND original stdout (fd 3)
-    # stderr goes to original stdout (fd 3)
-    ("$@" 2>&3) | tee "$tmpfile" >&3
-    local exit_code=${PIPESTATUS[0]}
+    # stdout and stderr are captured to temp file to hide intermediate output.
+    # The spinner (writing to fd 3) remains visible.
+    "$@" > "$tmpfile" 2>&1
+    local exit_code=$?
 
     # Kill spinner and clean up line
     kill $spid 2>/dev/null
     wait $spid 2>/dev/null
-    printf "\r  \033[K" >&3
+    printf "\r\033[K" >&3
 
     exec 3>&-
 
@@ -52,7 +52,6 @@ run_agent_with_spinner() {
     fi
 
     # Render the captured markdown through glow for the final pretty view
-    echo "---" >&2
     glow "$tmpfile"
 
     rm -f "$tmpfile"
