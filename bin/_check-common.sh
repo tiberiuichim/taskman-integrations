@@ -16,29 +16,31 @@ run_agent_with_spinner() {
     local tmpfile
     tmpfile=$(mktemp /tmp/taskman-agent-output.XXXXXX.md)
 
-    # Save original stdout
+    # Save original stdout to fd 3
     exec 3>&1
 
     # Start spinner in background, writes to original stdout (terminal)
     (
         local i=0
         local spinchars=("⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏")
-        while kill -0 $! 2>/dev/null; do
-            printf "\r  %s %s" "$spinner_text" "${spinchars[$i]}"
+        while true; do
+            printf "\r  %s %s" "$spinner_text" "${spinchars[$i]}" >&3
             i=$(( (i + 1) % 10 ))
             sleep 0.1
         done
-        printf "\r  \033[K" 2>/dev/null  # clear spinner line
     ) &
     local spid=$!
 
-    # Run agent: stdout -> temp file, stderr -> terminal (fd 3)
-    "$@" > "$tmpfile" 2>&3
-    local exit_code=$?
+    # Run agent: 
+    # stdout is teed to temp file AND original stdout (fd 3)
+    # stderr goes to original stdout (fd 3)
+    ("$@" 2>&3) | tee "$tmpfile" >&3
+    local exit_code=${PIPESTATUS[0]}
 
-    # Kill spinner if still running
+    # Kill spinner and clean up line
     kill $spid 2>/dev/null
     wait $spid 2>/dev/null
+    printf "\r  \033[K" >&3
 
     exec 3>&-
 
@@ -49,7 +51,8 @@ run_agent_with_spinner() {
         return $exit_code
     fi
 
-    # Render the captured markdown through glow
+    # Render the captured markdown through glow for the final pretty view
+    echo "---" >&2
     glow "$tmpfile"
 
     rm -f "$tmpfile"
