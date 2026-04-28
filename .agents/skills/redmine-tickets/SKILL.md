@@ -38,6 +38,18 @@ When creating or updating tickets, follow these conventions:
 - **Do not refer to "the user"** — it feels impersonal and creates distance.
 - **Do not frame the ticket as a conversation record** — it should read like a task description, not meeting minutes.
 
+### Checklists for multi-step tickets
+
+For complex tickets that imply multiple steps, add a checklist to outline the resolution goals. Only do this when the steps are clear — don't invent them.
+
+Example:
+
+> **Checklist:**
+> - [ ] Identify the source pages that need redirection
+> - [ ] Choose the redirection approach (delete, archive, or rename)
+> - [ ] Create the redirection rules
+> - [ ] Test all affected URLs
+
 ### Good vs bad examples
 
 **Bad:**
