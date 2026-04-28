@@ -42,6 +42,8 @@ When creating or updating tickets, follow these conventions:
 
 For complex tickets that imply multiple steps, add a checklist to outline the resolution goals. Only do this when the steps are clear — don't invent them.
 
+**Always include updating documentation as part of the ticket tasks.** Even for simple changes, document what was done so the knowledge doesn't disappear.
+
 Example:
 
 > **Checklist:**
@@ -49,6 +51,7 @@ Example:
 > - [ ] Choose the redirection approach (delete, archive, or rename)
 > - [ ] Create the redirection rules
 > - [ ] Test all affected URLs
+> - [ ] Update documentation
 
 ### Good vs bad examples
 
